@@ -1,0 +1,77 @@
+.card {
+  cursor: pointer;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 450px;
+    height: 100%;
+    gap: 24px;
+    //border: 1px solid #e8e8e8;
+    background-color: var(--color-secondary);
+    border-radius: 40px;
+    overflow: hidden;
+
+    &:hover {
+      box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.07);
+
+      //.card__btn:after {
+      //  width: 100%;
+      //}
+    }
+  }
+
+  &__content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    padding: 0 24px 40px;
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__subtitle {
+    font-size: var(--font-size-P3);
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    font-size: var(--font-size-P1);
+    line-height: 170%;
+    letter-spacing: 0.035em;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+  &__description {
+    font-size: var(--font-size-P2);
+    line-height: 170%;
+    letter-spacing: 0.035em;
+    margin-bottom: 24px;
+  }
+
+  &__btn {
+    position: relative;
+    margin-top: auto;
+    font-size: var(--font-size-P3);
+    font-weight: 600;
+    letter-spacing: 0.035em;
+    width: 100%;
+    padding-bottom: 16px;
+  }
+}
+
+.card__btn::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 27%;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease;
+}
