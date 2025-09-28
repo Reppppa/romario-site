@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import projectsData from '../../../data/projects.json'
-import welcomeData from '../../../data/welcome.json'
 import Card from "@components/template/Card.vue";
 import ProjectList from "@service/model/project/project-list.ts";
 import WelcomeBlock from "@components/template/WelcomeBlock.vue";
 import GridContainer from "@components/template/GridContainer.vue";
 import Breadcrumbs from "@components/layout/Breadcrumbs.vue";
+
+import projectsData from '../../../data/projects.json'
+import welcomeData from '../../../data/welcome.json'
 
 const projects = new ProjectList(projectsData)
 const welcome = welcomeData as any
