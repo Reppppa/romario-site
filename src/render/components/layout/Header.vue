@@ -27,16 +27,16 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 <template>
     <header class="header" :style="headerStyle">
         <div class="header__inner container">
-            <router-link class="header__logo" :to="{ path: '/home', hash: '#welcome' }">
+            <router-link class="header__logo" :to="{ name: 'Home', hash: '#welcome' }">
                 <span class="accent">Romario</span>Design
             </router-link>
 
             <nav class="header__nav">
-                <router-link class="header__link" :to="{ path: '/home', hash: '#about' }">
+                <router-link class="header__link" :to="{ name: 'Home', hash: '#about' }">
                     Обо мне
                 </router-link>
 
-                <router-link class="header__link" :to="{ path: '/home', hash: '#project' }">
+                <router-link class="header__link" :to="{ name: 'Home', hash: '#project' }">
                     Проекты
                 </router-link>
 
@@ -59,6 +59,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
     top: 0;
     left: 0;
     right: 0;
+    z-index: 10;
 
     transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease, border-bottom 0.3s ease;
 
@@ -97,7 +98,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
         cursor: pointer;
 
         &:hover {
-            opacity: 0.8;
+            color: var(--color-primary);
         }
     }
 
