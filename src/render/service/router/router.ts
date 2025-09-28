@@ -1,17 +1,25 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Main from '@views/MainPage.vue'
 
 const routes = [
     {
         path: '/home',
         name: 'Home',
-        component: Main
+        component: () => import('@views/HomePage.vue'),
+    },
+    {
+        path: '/:projectName',
+        name: 'Project',
+        component: () => import('@views/ProjectPage.vue'),
+    },
+    {
+        path: '/:projectName/:caseName',
+        name: 'Case',
+        component: () => import('@views/ProjectCase.vue'),
     },
     {
         path: '/:pathMatch(.*)*',
-        redirect: '/home'
+        redirect: '/home',
     },
-    // { path: '/about', name: 'About', component: '' },
 ]
 
 const router = createRouter({
@@ -27,11 +35,13 @@ const router = createRouter({
             return false
         }
         return { top: 0 }
-    }
+    },
 })
 
 router.afterEach(() => {
-    window.location.hash && history.replaceState(null, '', window.location.pathname)
-});
+    if (window.location.hash) {
+        history.replaceState(history.state, '', window.location.pathname)
+    }
+})
 
 export default router

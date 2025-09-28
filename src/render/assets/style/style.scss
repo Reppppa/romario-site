@@ -1,6 +1,5 @@
 @import "@assets/style/normalize.scss";
 @import "@assets/fonts/font.scss";
-@import "@assets/style/card.scss";
 
 $primary: #ff5552;
 
@@ -29,6 +28,11 @@ a {
   color: inherit;
 }
 
+img {
+  width: 100%;
+  height: 100%;
+}
+
 ::selection {
   background-color: var(--color-primary);
   color: var(--color-white);
@@ -40,6 +44,7 @@ header, footer {
 
 main {
   flex: 1 auto;
+  overflow-x: clip;
 }
 
 
@@ -58,10 +63,16 @@ main {
   padding: 0 40px;
   margin: 0 auto;
   box-sizing: border-box;
+  //border-right: 1px solid red;
+  //border-left: 1px solid red;
 }
 
 .accent {
   color: var(--color-primary);
+}
+
+.disabled {
+  pointer-events: none;
 }
 
 .title {
@@ -80,4 +91,24 @@ main {
   font-size: var(--font-size-P1);
   font-weight: 400;
   letter-spacing: 0.04em;
+  line-height: 140%;
+}
+
+.list-dots {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+
+  &:before {
+    display: block;
+    content: '';
+    border: 2px solid #ff5552;
+    border-radius: 6px;
+    width: 16px;
+    height: 16px;
+    aspect-ratio: 1;
+    transform: rotate(45deg);
+  }
 }
