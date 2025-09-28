@@ -10,8 +10,6 @@ import Breadcrumbs from "@components/layout/Breadcrumbs.vue";
 const projects = new ProjectList(projectsData)
 const welcome = welcomeData as any
 
-console.log(projects.getData())
-
 </script>
 
 <template>
