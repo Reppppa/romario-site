@@ -63,8 +63,6 @@ main {
   padding: 0 40px;
   margin: 0 auto;
   box-sizing: border-box;
-  //border-right: 1px solid red;
-  //border-left: 1px solid red;
 }
 
 .accent {
@@ -97,14 +95,14 @@ main {
 .list-dots {
   display: flex;
   flex-direction: row;
-  align-items: center;
   gap: 20px;
   margin-bottom: 24px;
 
   &:before {
     display: block;
+    margin-top: 5px;
     content: '';
-    border: 2px solid #ff5552;
+    border: 2px solid var(--color-primary);
     border-radius: 6px;
     width: 16px;
     height: 16px;
