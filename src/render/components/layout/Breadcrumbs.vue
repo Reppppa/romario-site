@@ -86,7 +86,7 @@ function goTo(link: any) {
         transition: color 0.2s;
 
         &:hover {
-            color: var(--color-primary);
+            opacity: 0.8;
         }
     }
 

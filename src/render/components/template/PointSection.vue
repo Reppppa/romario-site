@@ -88,7 +88,7 @@ defineProps<PointProps>()
             line-height: 0.5em;
             color: var(--color-primary);
             padding-right: 12px;
-            padding-top: 0.17em;
+            padding-top: 0.2em;
         }
     }
 }
