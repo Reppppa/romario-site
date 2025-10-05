@@ -54,4 +54,8 @@ export default class ProjectItem {
     getData () {
         return this.data;
     }
+
+    getPdf () {
+        return this.pdf;
+    }
 }

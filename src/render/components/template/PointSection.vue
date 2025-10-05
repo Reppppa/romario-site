@@ -1,11 +1,11 @@
 <script setup lang="ts">
 
-import { getImgSrc } from "@/render/utils/helper.ts";
 import ProjectSectionPoint from "@service/model/project/project-section-point.ts";
+import { getImgSrc } from "@/render/service/projectService.ts";
 
 interface PointProps {
-    imgName: string;
-    title: string;
+    imgName?: string;
+    title?: string;
     reverse: boolean;
     points: ProjectSectionPoint[];
 }
@@ -18,6 +18,7 @@ defineProps<PointProps>()
     <div class="point-section" :class="{ 'right': reverse, 'left': !reverse }">
         <div class="point-section__inner">
             <div
+                v-if="imgName"
                 class="point-section__img"
                 :style="{ backgroundImage: `url(${getImgSrc(imgName)})` }"
             />
@@ -25,7 +26,8 @@ defineProps<PointProps>()
             <span></span>
 
             <div class="point-section__content">
-                <div class="point-section__title title accent">{{ title }}</div>
+                <div class="point-section__title title accent" v-if="title">{{ title }}</div>
+
                 <div class="point-section__point" v-for="(p, index) in points" :key="index">
                     <span>
                         <span class="point-section__paragraph subtitle" v-html="p.getParagraph()"/>

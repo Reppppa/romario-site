@@ -1,12 +1,13 @@
 <script setup lang="ts">
 
-import { getImgSrc } from "@/render/utils/helper.ts";
+import { getImgSrc } from "@/render/service/projectService.ts";
 
 interface CardProps {
     imgName: string
     tag: string
     title: string
     description: string
+    isPdf?: boolean
     isDone: boolean
 }
 
@@ -30,7 +31,7 @@ defineProps<CardProps>()
                 <div class="card__description">{{ description }}</div>
             </div>
 
-            <div class="card__btn accent" v-if="isDone">Подробнее</div>
+            <div class="card__btn accent">Подробнее</div>
         </div>
     </div>
 </template>
@@ -56,7 +57,7 @@ defineProps<CardProps>()
         //box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.07);
 
         .card__img img {
-            transform: scale(1.1); // увеличиваем картинку
+            transform: scale(1.1);
         }
     }
 
@@ -85,6 +86,7 @@ defineProps<CardProps>()
 
         & img {
             transition: transform 0.3s ease;
+            object-fit: cover;
         }
     }
 

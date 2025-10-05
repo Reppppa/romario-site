@@ -7,11 +7,15 @@ import GridContainer from "@components/template/GridContainer.vue";
 import PointSection from "@components/template/PointSection.vue";
 import Breadcrumbs from "@components/layout/Breadcrumbs.vue";
 import {getProjectByName} from "@service/projectService.ts";
+import AboutSection from "@components/template/AboutSection.vue";
 
 const route = useRoute();
 const projectName = String(route.params.projectName);
-
 const projectData = getProjectByName(projectName)!.getData();
+
+function isReversed(index: number) {
+    return index % 2 === 0
+}
 
 </script>
 
@@ -49,15 +53,26 @@ const projectData = getProjectByName(projectName)!.getData();
             </template>
         </GridContainer>
 
-        <PointSection
-            v-for="(section, index) in projectData.getSection()"
-            :key="index"
-            :imgName="section.getImgName()"
-            :title="section.getTitle()"
-            :points="section.getPoints()"
-            :reverse="index % 2 === 0"
-            class="project-page__section"
-        />
+        <template v-for="(section, index) in projectData.getSection()" >
+
+            <AboutSection
+                v-if="section.isInfoBlock()"
+                v-show="section.getDescription()"
+                :title="section.getTitle()"
+                :description="section.getDescription()"
+                class="project-page__about-section"
+            />
+
+            <PointSection
+                v-else
+                :key="index"
+                :imgName="section.getImgName()"
+                :title="section.getTitle()"
+                :points="section.getPoints()"
+                :reverse="isReversed(index)"
+                class="project-page__section"
+            />
+        </template>
     </div>
 </template>
 
@@ -71,6 +86,10 @@ const projectData = getProjectByName(projectName)!.getData();
 
     &__cases {
         margin: 100px 0;
+    }
+
+    &__about-section {
+        padding: 100px 0;
     }
 
     &__section {

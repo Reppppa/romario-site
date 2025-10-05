@@ -14,3 +14,8 @@ export function getCaseByName(projectName: string, caseName: string) {
 
     return project.getData().getCases().find((c) => c.getRouteName() === caseName)
 }
+
+export function getImgSrc(imgName: string): string {
+    const folder = imgName.split("_")[0]
+    return new URL(`../assets/img/${folder}/${imgName}.webp`, import.meta.url).href;
+}

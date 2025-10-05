@@ -4,6 +4,7 @@ import { useRoute } from "vue-router";
 import BehanceIcon from "@assets/icon/BehanceIcon.vue";
 import TelegramOutlineIcon from "@assets/icon/TelegramOutlineIcon.vue";
 import CvIcon from "@assets/icon/CvIcon.vue";
+import cv from '../../../../data/cv.pdf'
 
 const route = useRoute()
 
@@ -85,7 +86,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
                     <TelegramOutlineIcon />
                 </a>
 
-                <a class="header__contacts-item" href="#">
+                <a class="header__contacts-item" :href="cv" target="_blank">
                     <CvIcon />
                 </a>
             </div>
@@ -167,6 +168,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
                 padding: 10px 10px 5px;
                 letter-spacing: 0.14em;
                 font-weight: 600;
+                text-wrap: nowrap;
             }
 
             &:hover {

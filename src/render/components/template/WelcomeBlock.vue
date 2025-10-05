@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { getImgSrc } from "@/render/utils/helper.ts";
+import { getImgSrc } from "@/render/service/projectService.ts";
 
 interface Props {
     title?: string
@@ -43,8 +43,13 @@ const model = defineProps<Props>()
         padding: 200px 0 100px;
     }
 
-    &__image img {
-        width: 100%;
+    &__image {
+        width: 500px;
+        height: 400px;
+
+        & img {
+            object-fit: contain;
+        }
     }
 
     &__content {
